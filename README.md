@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/.NET-9.0-512bd4?style=for-the-badge&logo=.net" alt=".NET 9.0">
+  <img src="https://img.shields.io/badge/.NET-9.0-512bd4?style=for-the-badge&logo=.net" alt=".NET 8.0">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License MIT">
   <img src="https://img.shields.io/github/actions/workflow/status/BedrockSharp/Nbt/dotnet.yml?style=for-the-badge" alt="Build Status">
   <img src="https://img.shields.io/badge/PRs-welcome-cyan?style=for-the-badge" alt="PRs Welcome">

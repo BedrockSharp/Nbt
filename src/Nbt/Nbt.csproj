@@ -7,20 +7,19 @@
     <Nullable>enable</Nullable>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisMode>Minimum</AnalysisMode>
-    
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Authors>Erik Davidson (2010-2011); Matvei Stefarov (2012+)</Authors>
-    <Description>A library for working with NBT files and streams with VarInt support for Minecraft: Bedrock Edition.</Description>
-    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/TeamDeamonMC/Nbt</PackageProjectUrl>
-    <PackageReadmeFile>docs\README.md</PackageReadmeFile>
-    <PackageTags>nbt;serialization;minecraft;fcraft</PackageTags>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageId>DaemonMC-$(AssemblyName)</PackageId>
-    <VersionPrefix>1.0.0.1</VersionPrefix>
-    
+
+    <!-- NuGet Metadata -->
+    <PackageId>BedrockSharp.Nbt</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>BedrockSharp</Authors>
+    <Company>BedrockSharp</Company>
+    <Description>A high-performance, modern .NET implementation of the Bedrock named tags.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/BedrockSharp/Nbt</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/BedrockSharp/Nbt</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>nbt;serialization;minecraft;bedrock</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>..\bin\Debug\</OutputPath>
@@ -37,15 +36,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="\docs\" />
-    <None Include="..\..\docs\LICENSE.txt" Pack="true" PackagePath="\docs\" />
-    <None Include="..\..\docs\Changelog.md" Pack="true" PackagePath="\docs\" />
-    <None Include="icon.png" Pack="true" PackagePath="" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
   </ItemGroup>
 
-  <Target Name="SetPackageReleaseNotes" BeforeTargets="GenerateNuspec">
-    <PropertyGroup>
-      <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/../docs/Changelog.md"))</PackageReleaseNotes>
-    </PropertyGroup>
-  </Target>
 </Project>
