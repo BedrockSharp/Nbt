@@ -1,0 +1,227 @@
+using System;
+using System.Globalization;
+
+namespace Nbt.Test {
+    [TestClass]
+    public class ShortcutTests {
+        [TestMethod]
+        public void NbtByteTest() {
+            object dummy;
+            Tag test = new ByteTag(250);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteArrayValue);
+            Assert.AreEqual(250, test.ByteValue);
+            Assert.AreEqual((double)250, test.DoubleValue);
+            Assert.AreEqual((float)250, test.FloatValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntArrayValue);
+            Assert.AreEqual(250, test.IntValue);
+            Assert.AreEqual(250L, test.LongValue);
+            Assert.AreEqual(250, test.ShortValue);
+            Assert.AreEqual("250", test.StringValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongArrayValue);
+            Assert.IsTrue(test.HasValue);
+        }
+
+
+        [TestMethod]
+        public void NbtByteArrayTest() {
+            object dummy;
+            byte[] bytes = { 1, 2, 3, 4, 5 };
+            Tag test = new ByteArrayTag(bytes);
+            CollectionAssert.AreEqual(bytes, test.ByteArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.DoubleValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.FloatValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ShortValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.StringValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongArrayValue);
+            Assert.IsTrue(test.HasValue);
+        }
+
+
+        [TestMethod]
+        public void NbtCompoundTest() {
+            object dummy;
+            Tag test = new CompoundTag("Derp");
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.DoubleValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.FloatValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ShortValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.StringValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongArrayValue);
+            Assert.IsFalse(test.HasValue);
+        }
+
+
+        [TestMethod]
+        public void NbtDoubleTest() {
+            object dummy;
+            Tag test = new DoubleTag(0.4931287132182315);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteValue);
+            Assert.AreEqual(0.4931287132182315, test.DoubleValue);
+            Assert.AreEqual((float)0.4931287132182315, test.FloatValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ShortValue);
+            Assert.AreEqual((0.4931287132182315).ToString(CultureInfo.InvariantCulture), test.StringValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongArrayValue);
+            Assert.IsTrue(test.HasValue);
+        }
+
+
+        [TestMethod]
+        public void NbtFloatTest() {
+            object dummy;
+            Tag test = new FloatTag(0.49823147f);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteValue);
+            Assert.AreEqual((double)0.49823147f, test.DoubleValue);
+            Assert.AreEqual(0.49823147f, test.FloatValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ShortValue);
+            Assert.AreEqual((0.49823147f).ToString(CultureInfo.InvariantCulture), test.StringValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongArrayValue);
+            Assert.IsTrue(test.HasValue);
+        }
+
+
+        [TestMethod]
+        public void NbtIntTest() {
+            object dummy;
+            Tag test = new IntTag(2147483647);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteValue);
+            Assert.AreEqual((double)2147483647, test.DoubleValue);
+            Assert.AreEqual((float)2147483647, test.FloatValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntArrayValue);
+            Assert.AreEqual(2147483647, test.IntValue);
+            Assert.AreEqual(2147483647L, test.LongValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ShortValue);
+            Assert.AreEqual("2147483647", test.StringValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongArrayValue);
+            Assert.IsTrue(test.HasValue);
+        }
+
+
+        [TestMethod]
+        public void NbtIntArrayTest() {
+            object dummy;
+            int[] ints = { 1111, 2222, 3333, 4444, 5555 };
+            Tag test = new IntArrayTag(ints);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.DoubleValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.FloatValue);
+            CollectionAssert.AreEqual(ints, test.IntArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ShortValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.StringValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongArrayValue);
+            Assert.IsTrue(test.HasValue);
+        }
+
+
+        [TestMethod]
+        public void NbtListTest() {
+            object dummy;
+            Tag test = new ListTag("Derp");
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.DoubleValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.FloatValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ShortValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.StringValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongArrayValue);
+            Assert.IsFalse(test.HasValue);
+        }
+
+
+        [TestMethod]
+        public void NbtLongTest() {
+            object dummy;
+            Tag test = new LongTag(9223372036854775807);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteValue);
+            Assert.AreEqual((double)9223372036854775807, test.DoubleValue);
+            Assert.AreEqual((float)9223372036854775807, test.FloatValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntValue);
+            Assert.AreEqual(9223372036854775807, test.LongValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ShortValue);
+            Assert.AreEqual("9223372036854775807", test.StringValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongArrayValue);
+            Assert.IsTrue(test.HasValue);
+        }
+
+
+        [TestMethod]
+        public void NbtShortTest() {
+            object dummy;
+            Tag test = new ShortTag(32767);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteValue);
+            Assert.AreEqual((double)32767, test.DoubleValue);
+            Assert.AreEqual((float)32767, test.FloatValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntArrayValue);
+            Assert.AreEqual(32767, test.IntValue);
+            Assert.AreEqual(32767L, test.LongValue);
+            Assert.AreEqual(32767, test.ShortValue);
+            Assert.AreEqual("32767", test.StringValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongArrayValue);
+            Assert.IsTrue(test.HasValue);
+        }
+
+
+        [TestMethod]
+        public void NbtStringTest() {
+            object dummy;
+            Tag test = new StringTag("HELLO WORLD THIS IS A TEST STRING ÅÄÖ!");
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.DoubleValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.FloatValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ShortValue);
+            Assert.AreEqual("HELLO WORLD THIS IS A TEST STRING ÅÄÖ!", test.StringValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongArrayValue);
+            Assert.IsTrue(test.HasValue);
+        }
+
+
+        [TestMethod]
+        public void NbtLongArrayTest() {
+            object dummy;
+            long[] longs = { 1111, 2222, 3333, 4444, 5555 };
+            Tag test = new LongArrayTag(longs);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ByteValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.DoubleValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.FloatValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntArrayValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.IntValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.LongValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.ShortValue);
+            Assert.Throws<InvalidCastException>(() => dummy = test.StringValue);
+            CollectionAssert.AreEqual(longs, test.LongArrayValue);
+            Assert.IsTrue(test.HasValue);
+        }
+    }
+}
+
+
