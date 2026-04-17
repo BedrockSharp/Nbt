@@ -74,7 +74,7 @@ namespace Nbt {
 
         internal abstract void SkipTag(NbtBinaryReader readStream);
 
-        internal abstract void WriteTag(NbtBinaryWriter writeReader);
+        public abstract void WriteTag(NbtBinaryWriter writeReader);
 
         // WriteData does not write the tag's ID byte or the name
         internal abstract void WriteData(NbtBinaryWriter writeStream);

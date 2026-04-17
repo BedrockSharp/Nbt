@@ -54,8 +54,12 @@ namespace Nbt {
                 readStream.ReadSingle();
                 return false;
             }
-            Value = readStream.ReadSingle();
+            Value = readSingle(readStream);
             return true;
+        }
+
+        private float readSingle(NbtBinaryReader readStream) {
+            return readStream.ReadSingle();
         }
 
 
@@ -64,7 +68,7 @@ namespace Nbt {
         }
 
 
-        internal override void WriteTag(NbtBinaryWriter writeStream) {
+        public override void WriteTag(NbtBinaryWriter writeStream) {
             writeStream.Write(TagType.Float);
             if (Name == null) throw new NbtFormatException("Name is null");
             writeStream.Write(Name);
@@ -96,5 +100,3 @@ namespace Nbt {
         }
     }
 }
-
-

@@ -64,7 +64,7 @@ namespace Nbt {
         }
 
 
-        internal override void WriteTag(NbtBinaryWriter writeStream) {
+        public override void WriteTag(NbtBinaryWriter writeStream) {
             writeStream.Write(TagType.Byte);
             if (Name == null) throw new NbtFormatException("Name is null");
             writeStream.Write(Name);
@@ -96,5 +96,3 @@ namespace Nbt {
         }
     }
 }
-
-

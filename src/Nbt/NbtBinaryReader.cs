@@ -6,7 +6,7 @@ using System.Text;
 namespace Nbt {
     /// <summary> BinaryReader wrapper that takes care of reading primitives from an NBT stream,
     /// while taking care of endianness, string encoding, and skipping. </summary>
-    internal sealed class NbtBinaryReader : BinaryReader {
+    public sealed class NbtBinaryReader : BinaryReader {
         readonly byte[] buffer = new byte[sizeof(double)];
 
         byte[]? seekBuffer;
@@ -224,5 +224,3 @@ namespace Nbt {
         public TagSelector? Selector { get; set; }
     }
 }
-
-

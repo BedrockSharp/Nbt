@@ -5,7 +5,7 @@ using System.Text;
 namespace Nbt {
     /// <summary> BinaryWriter wrapper that writes NBT primitives to a stream,
     /// while taking care of endianness and string encoding, and counting bytes written. </summary>
-    internal sealed unsafe class NbtBinaryWriter {
+    public sealed unsafe class NbtBinaryWriter {
         // Write at most 4 MiB at a time.
         public const int MaxWriteChunk = 4 * 1024 * 1024;
 

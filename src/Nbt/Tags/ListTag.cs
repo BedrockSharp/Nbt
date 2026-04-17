@@ -34,7 +34,7 @@ namespace Nbt {
                     if (actualType != value) {
                         string msg = String.Format(CultureInfo.InvariantCulture,
                                                    "Given TagType ({0}) does not match actual element type ({1})",
-                                                   value, actualType);
+                                                    value, actualType);
                         throw new ArgumentException(msg);
                     }
                 }
@@ -311,7 +311,7 @@ namespace Nbt {
         }
 
 
-        internal override void WriteTag(NbtBinaryWriter writeStream) {
+        public override void WriteTag(NbtBinaryWriter writeStream) {
             writeStream.Write(TagType.List);
             if (Name == null) throw new NbtFormatException("Name is null");
             writeStream.Write(Name);
@@ -567,5 +567,3 @@ namespace Nbt {
         }
     }
 }
-
-

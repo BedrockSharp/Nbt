@@ -116,7 +116,7 @@ namespace Nbt {
         }
 
 
-        internal override void WriteTag(NbtBinaryWriter writeStream) {
+        public override void WriteTag(NbtBinaryWriter writeStream) {
             writeStream.Write(TagType.LongArray);
 
             if (Name == null) {
@@ -158,5 +158,3 @@ namespace Nbt {
         }
     }
 }
-
-

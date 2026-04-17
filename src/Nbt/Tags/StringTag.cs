@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Text;
 
 namespace Nbt {
-    /// <summary> A tag containing a single string. String is stored in UTF-8 encoding. </summary>
+    /// <summary> A tag containing a single string. </summary>
     public sealed class StringTag : Tag {
         /// <summary> Type of this tag (String). </summary>
         public override TagType TagType {
@@ -11,21 +11,23 @@ namespace Nbt {
         }
 
         /// <summary> Value/payload of this tag (a single string). May not be <c>null</c>. </summary>
+        /// <exception cref="ArgumentNullException"> <paramref name="value"/> is <c>null</c>. </exception>
         public string Value {
-            get { return stringVal; }
+            get { return stringValue; }
             set {
                 if (value == null) {
                     throw new ArgumentNullException(nameof(value));
                 }
-                stringVal = value;
+                stringValue = value;
             }
         }
 
-        string stringVal = "";
+        private string stringValue;
 
 
         /// <summary> Creates an unnamed StringTag tag with the default value (empty string). </summary>
-        public StringTag() { }
+        public StringTag()
+            : this(null, "") { }
 
 
         /// <summary> Creates an unnamed StringTag tag with the given value. </summary>
@@ -35,6 +37,8 @@ namespace Nbt {
             : this(null, value) { }
 
 
+
+
         /// <summary> Creates an StringTag tag with the given name and value. </summary>
         /// <param name="tagName"> Name to assign to this tag. May be <c>null</c>. </param>
         /// <param name="value"> String value to assign to this tag. May not be <c>null</c>. </param>
@@ -42,7 +46,7 @@ namespace Nbt {
         public StringTag(string? tagName, string value) {
             if (value == null) throw new ArgumentNullException(nameof(value));
             name = tagName;
-            Value = value;
+            stringValue = value;
         }
 
 
@@ -52,7 +56,7 @@ namespace Nbt {
         public StringTag(StringTag other) {
             if (other == null) throw new ArgumentNullException(nameof(other));
             name = other.name;
-            Value = other.Value;
+            stringValue = other.stringValue;
         }
 
 
@@ -73,7 +77,7 @@ namespace Nbt {
         }
 
 
-        internal override void WriteTag(NbtBinaryWriter writeStream) {
+        public override void WriteTag(NbtBinaryWriter writeStream) {
             writeStream.Write(TagType.String);
             if (Name == null) throw new NbtFormatException("Name is null");
             writeStream.Write(Name);
@@ -104,9 +108,7 @@ namespace Nbt {
             }
             sb.Append(": \"");
             sb.Append(Value);
-            sb.Append('"');
+            sb.Append('\"');
         }
     }
 }
-
-

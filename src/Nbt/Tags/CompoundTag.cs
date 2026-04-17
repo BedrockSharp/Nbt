@@ -367,10 +367,16 @@ namespace Nbt {
         }
 
 
-        internal override void WriteTag(NbtBinaryWriter writeStream) {
+        public override void WriteTag(NbtBinaryWriter writeStream) {
             writeStream.Write(TagType.Compound);
             if (Name == null) throw new NbtFormatException("Name is null");
             writeStream.Write(Name);
+            WriteData(writeStream);
+        }
+
+        /// <summary> Writes a tag with no name (Network NBT). </summary>
+        public void WriteNetwork(NbtBinaryWriter writeStream) {
+            writeStream.Write(TagType.Compound);
             WriteData(writeStream);
         }
 
@@ -539,5 +545,3 @@ namespace Nbt {
         }
     }
 }
-
-
