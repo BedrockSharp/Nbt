@@ -9,9 +9,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Nbt")]
 [assembly: AssemblyDescription("A library for working with NBT files and streams.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("github.com/mstefarov/Nbt")]
+[assembly: AssemblyCompany("BedrockSharp")]
 [assembly: AssemblyProduct("Nbt")]
-[assembly: AssemblyCopyright("2012-2024 Matvei Stefarov")]
+[assembly: AssemblyCopyright("2026 BedrockSharp")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
